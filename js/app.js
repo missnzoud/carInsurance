@@ -1,7 +1,7 @@
 //variable 
 when the form is submitted
 const form = document.getElementById('request-quote');
-
+const html = new HTMLUI();
 
 
 
@@ -13,12 +13,13 @@ fonctions eventListeners() {
 //event listeners
 document.addEventListener('DomContentLoaded', function() {
     //created the option for the years.
-    const html = new HTMLUI();
+   // const html = new HTMLUI(); on a enlevé pour remettre plus haut.
     html.displayYears();
 });
 
 document.addEventListener('submit', function(e) {
     e.preventDefault();
+    //read the value from the form
     const make = document.getElementById('make').value;
     const years = document.getElementById('year').value;
    /* console.log(make);
@@ -28,7 +29,9 @@ document.addEventListener('submit', function(e) {
     
     //check that all the fields had something
     if(years === '' || make === '' || level === ''){
-        console.log("error");
+       // console.log("error");
+        //console.log(html);
+        html.displayError('All the field are mandatory');
     }else{
         console.log("alright");
     }
@@ -60,4 +63,23 @@ document.addEventListener('submit', function(e) {
             selectYears.appendChild(option);
             
         }
+    }
+//prints an error
+    
+    HTMLUI.prototype.displayYears = function(message) {
+        //create a div
+        const div = document.createElement('div');
+        div.classList = 'error';
+        
+        //insert the message
+        div.innerHTML = 
+            <p>${message}</p>
+           ;
+        form.insertBefore(div, document.querySelector('.form-group'));
+        
+       // remove the Error
+        setTimeout(function() {
+            document.querySelector('.error').remove();
+            
+        }, 3000);
     }
