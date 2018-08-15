@@ -20,8 +20,10 @@ document.addEventListener('submit', function(e) {
     e.preventDefault();
     const make = document.getElementById('make').value;
     const years = document.getElementById('year').value;
-    console.log(make);
-    console.log(years);
+   /* console.log(make);
+    console.log(years);*/
+    //read the radio button
+    const level = document.querySelector('input[name= "level" ]:checked').value;
     
 
     
