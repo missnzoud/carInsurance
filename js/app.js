@@ -1,4 +1,5 @@
 //variable 
+const form = document.getElementById('request-quote');
 
 
 
@@ -6,9 +7,8 @@
 
 
 
-
-
-
+eventListeners();
+fonctions eventListeners() { 
 //event listeners
 document.addEventListener('DomContentLoaded', function() {
     //created the option for the years.
@@ -16,10 +16,19 @@ document.addEventListener('DomContentLoaded', function() {
     html.displayYears();
 });
 
+document.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const make = document.getElementById('make').value;
+    const years = document.getElementById('year').value;
+    console.log(make);
+    console.log(years);
+    
+
+    
+})
 
 
-
-
+}
 
 //Object
     
@@ -34,7 +43,7 @@ document.addEventListener('DomContentLoaded', function() {
         const selectYears = document.getElementById('year');
         //print the values
         
-        for(let i = min; i  <max; i++) {
+        for(let i = max; i  >= min; i++) {
             const option = document.createElement('option');
             option.value = i;
             option.textContent = i;
