@@ -1,4 +1,5 @@
 //variable 
+when the form is submitted
 const form = document.getElementById('request-quote');
 
 
@@ -23,11 +24,18 @@ document.addEventListener('submit', function(e) {
    /* console.log(make);
     console.log(years);*/
     //read the radio button
-    const level = document.querySelector('input[name= "level" ]:checked').value;
+    const level = document.querySelector('input[name="level" ]:checked').value;
+    
+    //check that all the fields had something
+    if(years === '' || make === '' || level === ''){
+        console.log("error");
+    }else{
+        console.log("alright");
+    }
     
 
     
-})
+});
 
 
 }
