@@ -54,6 +54,32 @@ function Insurance(make, years, level) {
     this.years = years;
     this.level = level;
 }
+//calculate the price for the current quotation
+Insurance.prototype.calculatequotation = function(insurance) {
+    
+let price;
+    const base = 2000;
+    //get the make
+    const make = insurance.make;
+    /*
+    1= america 15%
+    2= asian 05%
+    3= europa 35%
+    */
+    
+    switch(make) { 
+        case'1':
+              price = base * 1.15 ;
+            break;
+        case'2':
+              price = base * 1.05 ;
+            break;
+        case'3':
+              price = base * 1.35 ;
+            break;
+    }
+    console.log(price);
+}
     // everything related to the html
   function HTMLUI () {}
     //display the lastest 20 years in the select
