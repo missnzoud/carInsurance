@@ -78,7 +78,13 @@ let price;
               price = base * 1.35 ;
             break;
     }
-    console.log(price);
+       // console.log(price);
+    //get a year
+    
+    const year = insurance.years;
+    // console.log(price);display the years that some one select
+    
+    
 }
     // everything related to the html
   function HTMLUI () {}
