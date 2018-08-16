@@ -38,6 +38,9 @@ document.addEventListener('submit', function(e) {
         
         const insurance = new Insurance(make, years, level);
         const price = insurance.calculateQuotation(insurance);
+        //console.log(price);
+        //print the result from the HTMLUI();
+        html.showResults(price, insurance);
     }
     
 
@@ -92,7 +95,8 @@ let price;
     // check the level of protection
     const level = insurance.level;
     price = this.calculateLevel(price, level);
-    console.log(price);
+    //console.log(price);
+    return price;
     
 }
 //returns the differences between years
@@ -137,13 +141,19 @@ Insurance.prototype.calculateLevel = function(price, level){
         //create a div
         const div = document.createElement('div');
         div.classList = 'error';
-        div
-        
+    
         //insert the message
         //div.innerText = 
-        div.innerHTML = 
-            <p>${message}</p>
-           ;
+        div.innerHTML =  `
+                        <p class ="header"> summary </p>
+                        <p> make: ${make}</p>   
+                        <p> years:${insurance.years}</p>
+                        <p>level: ${insurance.level}</p>
+                   
+                         <p>${message}</p>
+            `;
+         
+     
         form.insertBefore(div, document.querySelector('.form-group'));
         
        // remove the Error
@@ -151,4 +161,39 @@ Insurance.prototype.calculateLevel = function(price, level){
             document.querySelector('.error').remove();
             
         }, 3000);
+    }
+    //print the result into the HTML
+    HTMLUI.prototype.showResults = function(price, insurance) {
+        //print the result
+        const result = document.getElementById('result');
+       
+        //create the div 
+        const div = document.createElement('div');
+        //get make of the object and assign a readable name
+         const make = insurance.make;
+        
+        switch(make) { 
+        case'1':
+                make = 'american';
+             
+            break;
+        case'2':
+                make = 'Asian';  
+             
+            break;
+        case'3':
+               make = 'european';
+               
+            break;
+    }
+    
+       // console.log(make);
+       
+        
+        div.innerHTML =  `
+        
+     <p class='total'> total: ${price} </p>  
+         
+     `;
+        
     }
