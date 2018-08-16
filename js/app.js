@@ -33,7 +33,11 @@ document.addEventListener('submit', function(e) {
         //console.log(html);
         html.displayError('All the field are mandatory');
     }else{
-        console.log("alright");
+        //console.log("alright");
+        //make the quotation
+        
+        const insurance = new Insurance(make, years, level);
+        const price = insurance.calculateQuotation(insurance);
     }
     
 
@@ -44,7 +48,13 @@ document.addEventListener('submit', function(e) {
 }
 
 //Object
-    
+//eberything related to the calculate quotation
+function Insurance(make, years, level) {
+    this.make = make;
+    this.years = years;
+    this.level = level;
+}
+    // everything related to the html
   function HTMLUI () {}
     //display the lastest 20 years in the select
     HTMLUI.prototype.displayYears = function () {
@@ -70,8 +80,10 @@ document.addEventListener('submit', function(e) {
         //create a div
         const div = document.createElement('div');
         div.classList = 'error';
+        div
         
         //insert the message
+        //div.innerText = 
         div.innerHTML = 
             <p>${message}</p>
            ;
