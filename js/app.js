@@ -200,5 +200,17 @@ Insurance.prototype.calculateLevel = function(price, level){
      <p class='total'> total: ${price} </p>  
          
      `;
+       
+         const spinner= document.querySelector('#loading img');
+        spinner.style.display = 'block';
+        setTimeout(function(){
+            spinner.style.display = 'none';
+            //print into the html
+            result.appendChild(div); 
+            
+        }, 3000);
         
-    }
+       
+}
+    
+    
