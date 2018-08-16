@@ -85,6 +85,10 @@ let price;
     // console.log(price);display the years that some one select
     //get the years differences
     const difference = this.getYearsDifference(year);
+      //console.log(difference);
+    //each year the cost of the insurance will be 3% cheaper
+    price = price - ((difference * 3) * price) /100;
+    console.log(price);
     
 }
 //returns the differences between years
