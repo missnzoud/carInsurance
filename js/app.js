@@ -88,12 +88,28 @@ let price;
       //console.log(difference);
     //each year the cost of the insurance will be 3% cheaper
     price = price - ((difference * 3) * price) /100;
+    //console.log(price);
+    // check the level of protection
+    const level = insurance.level;
+    price = this.calculateLevel(price, level);
     console.log(price);
     
 }
 //returns the differences between years
 Insurance.prototype.getYearsDifference = function(year) {
     return new Date().getFullYear() - year;
+}
+//add the value based on the level of protection
+Insurance.prototype.calculateLevel = function(price, level){
+    /* basic insurance is going to increase the value by 30%
+     the complece insurance is going to increase the values by 50% */
+    console.log(level);
+    if(level === 'basic'){
+        price = price * 1.30;
+    }else{
+        price = price * 1.50;
+    }
+    return price;
 }
     // everything related to the html
   function HTMLUI () {}
