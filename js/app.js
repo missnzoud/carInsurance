@@ -83,8 +83,13 @@ let price;
     
     const year = insurance.years;
     // console.log(price);display the years that some one select
+    //get the years differences
+    const difference = this.getYearsDifference(year);
     
-    
+}
+//returns the differences between years
+Insurance.prototype.getYearsDifference = function(year) {
+    return new Date().getFullYear() - year;
 }
     // everything related to the html
   function HTMLUI () {}
