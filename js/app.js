@@ -33,6 +33,11 @@ document.addEventListener('submit', function(e) {
         //console.log(html);
         html.displayError('All the field are mandatory');
     }else{
+       // remove the previous result;
+        const prevResult = document.querySelector('#result div');
+            if(prevResult != null){
+                prevResult.remove();
+            }
         //console.log("alright");
         //make the quotation
         
